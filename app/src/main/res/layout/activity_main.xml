@@ -175,15 +175,17 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="5pt"
         android:stretchColumns="*">
-        <TableRow
-            android:id="@+id/tv11"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/header_style"
-            android:padding="5dp"
-            android:text="@string/rbTemp"
-            android:textColor="#FFFFFF"
-            android:textStyle="bold">
+        <TableRow>
+            <TextView
+                android:id="@+id/tv11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/header_style"
+                android:padding="5dp"
+                android:text="@string/rbTemp"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold">
+            </TextView>
             <TextView
                 android:id="@+id/tv12"
                 android:layout_width="wrap_content"
@@ -209,15 +211,17 @@
                 android:text="273.15 K">
             </TextView>
         </TableRow>
-        <TableRow
-            android:id="@+id/tv21"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/header_style"
-            android:padding="5dp"
-            android:text="@string/rbDist"
-            android:textColor="#FFFFFF"
-            android:textStyle="bold">
+        <TableRow>
+            <TextView
+                android:id="@+id/tv21"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/header_style"
+                android:padding="5dp"
+                android:text="@string/rbDist"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold">
+            </TextView>
             <TextView
                 android:id="@+id/tv22"
                 android:layout_width="wrap_content"
@@ -243,15 +247,17 @@
                 android:text="3.2808 feet">
             </TextView>
         </TableRow>
-        <TableRow
-            android:id="@+id/tv31"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/header_style"
-            android:padding="5dp"
-            android:text="@string/rbWeight"
-            android:textColor="#FFFFFF"
-            android:textStyle="bold">
+        <TableRow>
+            <TextView
+                android:id="@+id/tv31"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/header_style"
+                android:padding="5dp"
+                android:text="@string/rbWeight"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold">
+            </TextView>
             <TextView
                 android:id="@+id/tv32"
                 android:layout_width="wrap_content"
