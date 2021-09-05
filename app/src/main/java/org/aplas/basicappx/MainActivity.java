@@ -2,20 +2,34 @@ package org.aplas.basicappx;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.DialogInterface;
 import android.os.Bundle;
-
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
-
+import android.widget.RadioButton;
+import android.widget.ArrayAdapter;
 import java.text.DecimalFormat;
 
+
 public class MainActivity extends AppCompatActivity {
+
+    private Distance dist = new Distance();
+    private Weight weight = new Weight();
+    private Temperature temp = new Temperature();
+    private Button convertBtn;
+    private EditText inputTxt;
+    private EditText outputTxt;
+    private Spinner unitOri;
+    private Spinner unitConv;
+    private RadioGroup unitType;
+    private CheckBox roundBox;
+    private CheckBox formBox;
+    private ImageView imgView;
+    private AlertDialog startDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +44,40 @@ public class MainActivity extends AppCompatActivity {
         roundBox = (CheckBox)findViewById(R.id.chkRounded);
         formBox = (CheckBox)findViewById(R.id.chkFormula);
         imgView = (ImageView)findViewById(R.id.img);
+
+        unitType.setOnCheckedChangeListener(
+                new RadioGroup.OnCheckedChangeListener() {
+                    @Override
+                    public void onCheckedChanged(RadioGroup group, int checkedId) {
+                        RadioButton radioButton = (RadioButton) findViewById(checkedId);
+                        ArrayAdapter<CharSequence> adapter;
+                        if (radioButton.getText().toString().equals("Temperature")){
+                            adapter = ArrayAdapter.createFromResource(unitType.getContext(),R.array.tempList, android.R.layout.simple_spinner_item);
+                            imgView.setImageResource(R.drawable.temperature);
+                            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                            unitOri.setAdapter(adapter);
+                            unitConv.setAdapter(adapter);
+                            inputTxt.setText("0");
+                            outputTxt.setText("0");
+                        }else if (radioButton.getText().toString().equals("Distance")){
+                            adapter = ArrayAdapter.createFromResource(unitType.getContext(),R.array.distList, android.R.layout.simple_spinner_item);
+                            imgView.setImageResource(R.drawable.distance);
+                            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                            unitOri.setAdapter(adapter);
+                            unitConv.setAdapter(adapter);
+                            inputTxt.setText("0");
+                            outputTxt.setText("0");
+                        }else if (radioButton.getText().toString().equals("Weight")){
+                            adapter = ArrayAdapter.createFromResource(unitType.getContext(),R.array.weightList, android.R.layout.simple_spinner_item);
+                            imgView.setImageResource(R.drawable.weight);
+                            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                            unitOri.setAdapter(adapter);
+                            unitConv.setAdapter(adapter);
+                            inputTxt.setText("0");
+                            outputTxt.setText("0");
+                        }
+                    }
+                });
     }
 
     @Override
@@ -47,19 +95,7 @@ public class MainActivity extends AppCompatActivity {
         startDialog.show();
     }
 
-    private Distance dist = new Distance();
-    private Weight weight = new Weight();
-    private Temperature temp = new Temperature();
-    private Button convertBtn;
-    private EditText inputTxt;
-    private EditText outputTxt;
-    private Spinner unitOri;
-    private Spinner unitConv;
-    private RadioGroup unitType;
-    private CheckBox roundBox;
-    private CheckBox formBox;
-    private ImageView imgView;
-    private AlertDialog startDialog;
+
 
     protected double convertUnit(String type, String oriUnit, String convUnit, double value){
         double result = 0;
