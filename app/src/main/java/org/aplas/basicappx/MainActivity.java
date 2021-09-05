@@ -121,4 +121,10 @@ public class MainActivity extends AppCompatActivity {
         }
         return str;
     }
+    public void doConvert(){
+        double input = Double.parseDouble(inputTxt.getText().toString());
+        RadioButton radioButton = (RadioButton) findViewById(unitType.getCheckedRadioButtonId());
+        double output = convertUnit(radioButton.getText().toString(),unitOri.getSelectedItem().toString(),unitConv.getSelectedItem().toString(),input);
+        outputTxt.setText(strResult(output, roundBox.isChecked()));
+    }
 }
